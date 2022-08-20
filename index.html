@@ -1,28 +1,60 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>DECO1800/7180 Week 3 Workshop Example 2</title>
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/leaflet.css">
-	</head>
-	<body>
-		<div id="user_info">
-			<h1 id="user">Olivia Garden</h1>
+
+<head>
+	<meta charset="utf-8">
+	<title>DECO1800/7180 Week 3 Workshop Example 2</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/leaflet.css">
+</head>
+
+<body>
+	<div id="user_info">
+		<h1 id="user">Olivia Garden</h1>
 			<ul>
 				<li id="food_w"></li>
 				<li id="animal_w"></li>
 				<li id="green_w"></li>
 			</ul>
+	</div>
+
+	<div class="container">
+		<div class="popup">
+			<h2>Exchange waste</h2>
+			<select>
+				<option>What kind of waste do you want to change?</option>
+				<option>Food</option>
+				<option>Animal</option>
+				<option>Green</option>
+			</select>
+			<br>
+			<label for="amount">The amount of waste:</label><br>
+			<input type="text" id="waste" name="waste" required><br>
+
+			<hr>
+
+			<select>
+				<option>What kind of waste do you want?</option>
+				<option>Food</option>
+				<option>Animal</option>
+				<option>Green</option>
+			</select>
+			<br>
+			<label for="amount">The amount of waste:</label><br>
+			<input type="text" id="waste" name="waste" required><br>
+
+			<button type="button">OK</button>
 		</div>
+	</div>
 
 
-		<div id="map_container">
-			<article id="map"></article>
-		</div>
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script src="js/script.js"></script>
-		<script src="js/leaflet.js"></script>
+	<div id="map_container">
+		<article id="map"></article>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/leaflet.js"></script>
 
-	</body>
+</body>
+
 </html>
