@@ -19,8 +19,9 @@ function openPopup() {
 var buttonCount = 0;
 
 function changeWaste() {
-    var waste_amount = document.getElementById("waste");
-    food_waste = food_waste + Number(waste_amount.value);
+    var waste_provide = document.getElementById("waste_owner");
+    var waste_recive = document.getElementById("waste_another_owner");
+    food_waste = food_waste - Number(waste_provide.value) + Number(waste_recive.value);
     food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg';
     popup.classList.remove("open-popup");
 }
