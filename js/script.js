@@ -23,16 +23,21 @@ function closePopup() {
     popup.classList.remove("open-popup");
 }
 
-
+// Garden ID
 var buttonCount = 0;
 
 function changeWaste() {
 
     var provided_type = document.getElementById("waste_go").value;
+    
     var recived_type = document.getElementById("waste_get").value;
 
     var provided_amount = document.getElementById("waste_owner");
     var recived_amount = document.getElementById("waste_another_owner");
+
+    console.log("Provide: " + provided_type + ", " + provided_amount.value);
+    console.log("Receive: " + recived_type + ", " + recived_amount.value);
+    console.log("Food: " + food_waste + ", Animal: " + animal_waste + ", Green: " + green_waste);
 
     var garden_food_obj = document.getElementById("food" + buttonCount);
     console.log("food" + buttonCount);
@@ -83,6 +88,7 @@ function changeWaste() {
         popup.classList.remove("open-popup");
     }
 
+<<<<<<< Updated upstream
 
     garden_value = garden_id.value.split("-");
     food = garden_value[0];
@@ -95,6 +101,15 @@ function changeWaste() {
     console.log(recived_type);
     console.log(provided_type);
     console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
+=======
+    console.log(garden_id.value.substr(0, 2));
+    console.log(garden_id.value.substr(2, 2));
+    console.log(garden_id.value.substr(4, 2));
+    food = garden_id.value.split(" ")[0];
+    animal = garden_id.value.split(" ")[1];
+    green = garden_id.value.split(" ")[2];
+
+>>>>>>> Stashed changes
     if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
         if (provided_type == 1) {
             food = Number(food) + Number(provided_amount.value);
@@ -125,6 +140,7 @@ function changeWaste() {
         garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg';
         garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg';
         popup.classList.remove("open-popup");
+        console.log("Food: " + food_waste + ", Animal: " + animal_waste + ", Green: " + green_waste);
     }
 
 
