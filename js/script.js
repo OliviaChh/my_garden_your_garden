@@ -35,7 +35,11 @@ function changeWaste() {
     if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
         if (provided_type == 1) {
             food_waste = food_waste - Number(provided_amount.value);
-            if (recived_type == 2) {
+            if (food_waste < 0) {
+                alert("Please choose other kinds of waste to exchange or provide less amount of it.");
+                food_waste = food_waste + Number(provided_amount.value);
+            }
+            else if (recived_type == 2) {
                 animal_waste = animal_waste + Number(recived_amount.value);
             }
             else if (recived_type == 3) {
@@ -45,7 +49,11 @@ function changeWaste() {
 
         else if (provided_type == 2) {
             animal_waste = animal_waste - Number(provided_amount.value);
-            if (recived_type == 1) {
+            if (animal_waste < 0) {
+                alert("Please choose other kinds of waste to exchange or provide less amount of it.");
+                animal_waste = animal_waste + Number(provided_amount.value);
+            }
+            else if (recived_type == 1) {
                 food_waste = food_waste + Number(recived_amount.value);
             }
             else if (recived_type == 3) {
@@ -55,7 +63,11 @@ function changeWaste() {
 
         else if (provided_type == 3) {
             green_waste = green_waste - Number(provided_amount.value);
-            if (recived_type == 1) {
+            if (green_waste < 0) {
+                alert("Please choose other kinds of waste to exchange or provide less amount of it.");
+                green_waste = green_waste + Number(provided_amount.value);
+            }
+            else if (recived_type == 1) {
                 food_waste = food_waste + Number(recived_amount.value);
             }
             else if (recived_type == 2) {
