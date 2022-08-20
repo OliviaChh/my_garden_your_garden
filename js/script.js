@@ -1,70 +1,73 @@
 function iterateRecords(results) {
 
-	console.log(results);
+    console.log(results);
 
-	// Setup the map as per the Leaflet instructions:
+    // Setup the map as per the Leaflet instructions:
 
-	var myMap = L.map("map").setView([-27.5, 153], 12); // setView([coordinate, map size])
-	// https://leafletjs.com/examples/quick-start/
-	L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-	maxZoom: 50, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	}).addTo(myMap);
+    var myMap = L.map("map").setView([-27.5, 153], 12); // setView([coordinate, map size])
+    // https://leafletjs.com/examples/quick-start/
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 50,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(myMap);
 
 
-	// Iterate over each record and add a marker using the Latitude field (also containing longitude)
-	$.each(results.result.records, function(recordID, recordValue) {
+    // Iterate over each record and add a marker using the Latitude field (also containing longitude)
+    $.each(results.result.records, function(recordID, recordValue) {
 
-		var recordLatitude = recordValue["Latitude"];
-		var gardenName = recordValue["Garden_Name"];
-		var recordLongitude = recordValue["Longitude"];
-		var recordAddress = recordValue["Address"];
-		var recordFacilities = recordValue["Facilities"];
-		var recordPhone = recordValue["Phone"];
-		var recordWebsite = recordValue["Website"];
-		var recordOpeningTimes = recordValue["Opening_times"];
-		var recordOtherInfo = recordValue["Other_information"];
+        var recordLatitude = recordValue["Latitude"];
+        var gardenName = recordValue["Garden_Name"];
+        var recordLongitude = recordValue["Longitude"];
+        var recordAddress = recordValue["Address"];
+        var recordFacilities = recordValue["Facilities"];
+        var recordPhone = recordValue["Phone"];
+        var recordWebsite = recordValue["Website"];
+        var recordOpeningTimes = recordValue["Opening_times"];
+        var recordOtherInfo = recordValue["Other_information"];
+        var foodAmount = Math.random() * 100;
+        // Markers
+        var marker = L.marker([recordLatitude, recordLongitude]).addTo(myMap);
 
-		// Markers
-		var marker = L.marker([recordLatitude, recordLongitude]).addTo(myMap);
+        // Pop up msg
+        //var popup = L.popup().setLatLng([51.513, -0.09]).setContent("I am a standalone popup.").openOn(myMap);
+        marker.bindPopup("<br><h1>" + gardenName + "</h1>" +
+            "<br><b>Address: </b><br>" + recordAddress +
+            "<br><b>Facilities: </b><br>" + recordFacilities +
+            "<br><b>Opening times: </b>" + recordOpeningTimes +
+            "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
+            "<br><b>Contact: </b><br>" + recordPhone +
+            "<br><b>Other information: </b><br>" + recordOtherInfo +
+            "<br><b>Food Amount: </b><br>" + foodAmount
+            /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
+        ).openPopup();
 
-		// Pop up msg
-		//var popup = L.popup().setLatLng([51.513, -0.09]).setContent("I am a standalone popup.").openOn(myMap);
-		marker.bindPopup("<br><h1>" + gardenName + "</h1>" 
-		+ "<br><b>Address: </b><br>" + recordAddress 
-		+ "<br><b>Facilities: </b><br>" + recordFacilities
-		+ "<br><b>Opening times: </b>" + recordOpeningTimes 
-		+ "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>"
-		+ "<br><b>Contact: </b><br>" + recordPhone
-		+ "<br><b>Other information: </b><br>" + recordOtherInfo     
-		/*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/).openPopup();
+        // Circles
+        var circle = L.circle([recordLatitude, recordLongitude], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(myMap);
 
-		// Circles
-		var circle = L.circle([recordLatitude, recordLongitude], {
-			color: 'red',
-			fillColor: '#f03',
-			fillOpacity: 0.5,
-			radius: 500
-		}).addTo(myMap);
-		
-	});
+    });
 
 }
 
 $(document).ready(function() {
 
-	var data = {
-		resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
-		//limit: 100
-	}
+    var data = {
+        resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
+            //limit: 100
+    }
 
-	$.ajax({
-		url: "https://www.data.brisbane.qld.gov.au/data/api/3/action/datastore_search",
-		data: data,
-		dataType: "jsonp",
-		cache: true,
-		success: function(results) {
-			iterateRecords(results);
-		}
-	});
+    $.ajax({
+        url: "https://www.data.brisbane.qld.gov.au/data/api/3/action/datastore_search",
+        data: data,
+        dataType: "jsonp",
+        cache: true,
+        success: function(results) {
+            iterateRecords(results);
+        }
+    });
 
 });
