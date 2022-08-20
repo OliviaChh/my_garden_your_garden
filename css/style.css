@@ -1,5 +1,7 @@
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
@@ -12,17 +14,28 @@ body {
 }
 
 #user_info{
+	font-size:25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size:25px;
+	flex-wrap: wrap;
+	/* border: 4px pink solid; */
+}
+#user{
+	display: block;
+	margin: 25px;
+	margin-right: 40px;
+	/* border: 4px red solid; */
 }
 #user_info ul{
+	display: block;
 	list-style: none;
+	margin: 20px;
+	/* border: 4px green solid; */
 }
 #user_info li{
 	display: inline;
-	padding-left: 30px;
+	padding: 30px;
 }
 
 #map_container{
