@@ -135,6 +135,7 @@ function changeWaste() {
         garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg';
         garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg';
         garden_id.value = food + "-" + animal + "-" + green;
+        // This line is important
     }
 
 
