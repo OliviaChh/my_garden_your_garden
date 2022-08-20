@@ -35,10 +35,10 @@ function changeWaste() {
     var recived_amount = document.getElementById("waste_another_owner");
 
     var garden_food_obj = document.getElementById("food" + buttonCount);
-    console.log("food from garden no: " + buttonCount);
     var garden_animal_obj = document.getElementById("animal" + buttonCount);
     var garden_green_obj = document.getElementById("green" + buttonCount);
     var garden_id = document.getElementById(buttonCount);
+    console.log("food from garden no: " + buttonCount);
     console.log(garden_id.value);
 
     // Update user's garden's data
@@ -48,8 +48,7 @@ function changeWaste() {
             if (food_waste < 0) {
                 alert("Please choose other kinds of waste to exchange or provide less amount of it.");
                 food_waste = food_waste + Number(provided_amount.value);
-            }
-            else if (recived_type == 2) {
+            } else if (recived_type == 2) {
                 animal_waste = animal_waste + Number(recived_amount.value);
             } else if (recived_type == 3) {
                 green_waste = green_waste + Number(recived_amount.value);
@@ -59,8 +58,7 @@ function changeWaste() {
             if (animal_waste < 0) {
                 alert("Please choose other kinds of waste to exchange or provide less amount of it.");
                 animal_waste = animal_waste + Number(provided_amount.value);
-            }
-            else if (recived_type == 1) {
+            } else if (recived_type == 1) {
                 food_waste = food_waste + Number(recived_amount.value);
             } else if (recived_type == 3) {
                 green_waste = green_waste + Number(recived_amount.value);
@@ -70,8 +68,7 @@ function changeWaste() {
             if (green_waste < 0) {
                 alert("Please choose other kinds of waste to exchange or provide less amount of it.");
                 green_waste = green_waste + Number(provided_amount.value);
-            }
-            else if (recived_type == 1) {
+            } else if (recived_type == 1) {
                 food_waste = food_waste + Number(recived_amount.value);
             } else if (recived_type == 2) {
                 animal_waste = animal_waste + Number(recived_amount.value);
@@ -85,22 +82,24 @@ function changeWaste() {
         popup.classList.remove("open-popup");
     }
 
+    var food = 0;
+    var animal = 0;
+    var green = 0;
+
     garden_value = garden_id.value.split("-");
     food = garden_value[0];
     animal = garden_value[1];
     green = garden_value[2];
-    console.log(garden_value);
+    console.log(garden_value + "garden_value");
+
 
     console.log(food);
     console.log(animal);
     console.log(green);
-    console.log(recived_type);
-    console.log(provided_type);
+    console.log(recived_type + "recive_type");
+    console.log(provided_type + "provide_type");
     console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
 
-    console.log(garden_id.value.substr(0, 2));
-    console.log(garden_id.value.substr(2, 2));
-    console.log(garden_id.value.substr(4, 2));
     /*food = garden_id.value.split(" ")[0];
     animal = garden_id.value.split(" ")[1];
     green = garden_id.value.split(" ")[2];*/
@@ -136,7 +135,8 @@ function changeWaste() {
         garden_food_obj.innerHTML = 'Food waste amount: ' + food + ' kg';
         garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg';
         garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg';
-        popup.classList.remove("open-popup");
+        garden_id.value = food + "-" + animal + "-" + green;
+        // This line is important
     }
 
 
