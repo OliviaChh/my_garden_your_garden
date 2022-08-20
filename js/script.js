@@ -90,7 +90,7 @@ function changeWaste() {
     animal = garden_value[1];
     green = garden_value[2];
     console.log(garden_value);
-    
+
     console.log(food);
     console.log(animal);
     console.log(green);
@@ -159,17 +159,17 @@ function iterateRecords(results) {
 
 
     // Iterate over each record and add a marker using the Latitude field (also containing longitude)
-    $.each(results.result.records, function(recordID, recordValue) {
+    $.each(results.result.records, function (recordID, recordValue) {
 
         var recordLatitude = recordValue["Latitude"];
         var gardenName = recordValue["Garden_Name"];
         var recordLongitude = recordValue["Longitude"];
-        var recordAddress = recordValue["Address"];
-        var recordFacilities = recordValue["Facilities"];
-        var recordPhone = recordValue["Phone"];
-        var recordWebsite = recordValue["Website"];
-        var recordOpeningTimes = recordValue["Opening_times"];
-        var recordOtherInfo = recordValue["Other_information"];
+        // var recordAddress = recordValue["Address"];
+        // var recordFacilities = recordValue["Facilities"];
+        // var recordPhone = recordValue["Phone"];
+        // var recordWebsite = recordValue["Website"];
+        // var recordOpeningTimes = recordValue["Opening_times"];
+        // var recordOtherInfo = recordValue["Other_information"];
         var foodAmount = Math.floor(Math.random() * 100) + 1;
         var animalAmount = Math.floor(Math.random() * 100) + 1;
         var greenAmount = Math.floor(Math.random() * 100) + 1;
@@ -191,7 +191,7 @@ function iterateRecords(results) {
             "<br><b><div id=\"food" + buttonCount + "\" value=" + foodAmount + ">Food waste amount: </b><br>" + foodAmount + " / 100</div>" +
             "<br><b><div id=\"animal" + buttonCount + "\" value=" + animalAmount + ">Animal waste amount:</b><br>" + animalAmount + " / 100</div>" +
             "<br><b><div id=\"green" + buttonCount + "\" value=" + greenAmount + ">Green waste amount: </b><br>" + greenAmount + " / 100</div>" +
-            "<br><b><button  onclick=\"openPopup(" + buttonCount + " )\" id=" + buttonCount + " \" value=" + foodAmount + "-" + animalAmount + "-" + greenAmount + " class='changeBtn'> Change waste </button>"
+            "<br><b><button class='changeBtn' onclick=\"openPopup(" + buttonCount + " )\" id=" + buttonCount + " \" value=" + foodAmount + "-" + animalAmount + "-" + greenAmount + "> Change waste </button>"
             /* "<button id=" + buttonCount + "> Change waste </button>"
             + "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
@@ -215,11 +215,11 @@ function iterateRecords(results) {
 
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     var data = {
         resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
-            //limit: 100
+        //limit: 100
     }
 
     $.ajax({
@@ -227,7 +227,7 @@ $(document).ready(function() {
         data: data,
         dataType: "jsonp",
         cache: true,
-        success: function(results) {
+        success: function (results) {
             iterateRecords(results);
         }
     });
