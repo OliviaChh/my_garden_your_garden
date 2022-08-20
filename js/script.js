@@ -188,9 +188,9 @@ function iterateRecords(results) {
              "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
              "<br><b>Contact: </b><br>" + recordPhone +
              "<br><b>Other information: </b><br>" + recordOtherInfo +*/
-            "<br><b><div id=\"food" + buttonCount + "\" value=" + foodAmount + ">Food waste amount: </b><br>" + foodAmount + " / 100</div>" +
-            "<br><b><div id=\"animal" + buttonCount + "\" value=" + animalAmount + ">Animal waste amount:</b><br>" + animalAmount + " / 100</div>" +
-            "<br><b><div id=\"green" + buttonCount + "\" value=" + greenAmount + ">Green waste amount: </b><br>" + greenAmount + " / 100</div>" +
+            "<br><b><div id=\"food" + buttonCount + "\" value=" + foodAmount + ">Food waste amount: </b><br>" + foodAmount + " kg</div>" +
+            "<br><b><div id=\"animal" + buttonCount + "\" value=" + animalAmount + ">Animal waste amount:</b><br>" + animalAmount + " kg</div>" +
+            "<br><b><div id=\"green" + buttonCount + "\" value=" + greenAmount + ">Green waste amount: </b><br>" + greenAmount + " kg</div>" +
             "<br><b><button class='changeBtn' onclick=\"openPopup(" + buttonCount + " )\" id=" + buttonCount + " \" value=" + foodAmount + "-" + animalAmount + "-" + greenAmount + "> Change waste </button>"
             /* "<button id=" + buttonCount + "> Change waste </button>"
             + "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
