@@ -132,9 +132,9 @@ function changeWaste() {
         console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
 
         // Display the update
-        garden_food_obj.innerHTML = 'Food waste amount: ' + food + ' kg';
-        garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg';
-        garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg';
+        garden_food_obj.innerHTML = '<b>Food waste amount: </b><br>' + food + ' kg';
+        garden_animal_obj.innerHTML = '<b>Animal waste amount: </b><br>' + animal + ' kg';
+        garden_green_obj.innerHTML = '<b>Green waste amount: </b><br>' + green + ' kg';
         garden_id.value = food + "-" + animal + "-" + green;
         // This line is important
     }
