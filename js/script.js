@@ -1,6 +1,6 @@
-var food_waste = 200;
-var animal_waste = 500;
-var green_waste = 300;
+var food_waste = 20;
+var animal_waste = 50;
+var green_waste = 30;
 
 var food_obj = document.getElementById("food_w");
 var animal_obj = document.getElementById("animal_w");
@@ -19,11 +19,54 @@ function openPopup() {
 var buttonCount = 0;
 
 function changeWaste() {
-    var waste_provide = document.getElementById("waste_owner");
-    var waste_recive = document.getElementById("waste_another_owner");
-    food_waste = food_waste - Number(waste_provide.value) + Number(waste_recive.value);
-    food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg';
-    popup.classList.remove("open-popup");
+
+    var provided_type = document.getElementById("waste_go").value;
+    var recived_type = document.getElementById("waste_get").value;
+
+    var provided_amount = document.getElementById("waste_owner");
+    var recived_amount = document.getElementById("waste_another_owner");
+
+
+    if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
+        if (provided_type == 1) {
+            food_waste = food_waste - Number(provided_amount.value);
+            if (recived_type == 2) {
+                animal_waste = animal_waste + Number(recived_amount.value);
+            }
+            else if (recived_type == 3) {
+                green_waste = green_waste + Number(recived_amount.value);
+            }
+        }
+
+        else if (provided_type == 2) {
+            animal_waste = animal_waste - Number(provided_amount.value);
+            if (recived_type == 1) {
+                food_waste = food_waste + Number(recived_amount.value);
+            }
+            else if (recived_type == 3) {
+                green_waste = green_waste + Number(recived_amount.value);
+            }
+        }
+
+        else if (provided_type == 3) {
+            green_waste = green_waste - Number(provided_amount.value);
+            if (recived_type == 1) {
+                food_waste = food_waste + Number(recived_amount.value);
+            }
+            else if (recived_type == 2) {
+                animal_waste = animal_waste + Number(recived_amount.value);
+            }
+        }
+
+        food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
+        animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg'
+        green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg'
+        popup.classList.remove("open-popup");
+    }
+
+
+    // food_waste = food_waste - Number(provided_amount.value) + Number(recived_amount.value);
+
 }
 
 
@@ -43,7 +86,7 @@ function iterateRecords(results) {
 
 
     // Iterate over each record and add a marker using the Latitude field (also containing longitude)
-    $.each(results.result.records, function(recordID, recordValue) {
+    $.each(results.result.records, function (recordID, recordValue) {
 
         var recordLatitude = recordValue["Latitude"];
         var gardenName = recordValue["Garden_Name"];
@@ -99,11 +142,11 @@ function iterateRecords(results) {
 
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     var data = {
         resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
-            //limit: 100
+        //limit: 100
     }
 
     $.ajax({
@@ -111,7 +154,7 @@ $(document).ready(function() {
         data: data,
         dataType: "jsonp",
         cache: true,
-        success: function(results) {
+        success: function (results) {
             iterateRecords(results);
         }
     });
