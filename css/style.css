@@ -62,7 +62,7 @@ body {
 }
 
 .popup {
-	width: 25rem; 
+	width: 25rem;
 	height: 29rem;
 	background: rgba(255, 255, 255, 0.9);
 	border-radius: 5px;
@@ -93,30 +93,32 @@ body {
 }
 
 .changeBtn {
-	background-color:rgb(19, 163, 6);
+	background-color: rgb(19, 163, 6);
 	border: none;
 	color: white;
 	font-weight: bold;
 	padding: 10px 16px;
-  	text-align: center;
-  	display: inline-block;
-  	font-size: 18px;
+	text-align: center;
+	display: inline-block;
+	font-size: 18px;
 	border-radius: 5px;
 }
 
 .changeBtn:hover {
-	background-color:white;
+	background-color: white;
 	border: solid 1px rgb(19, 163, 6);
 	color: rgb(19, 163, 6);
+	cursor: pointer;
 }
 
 .lab {
 	font-weight: bold;
-	display:block;
+	display: block;
 }
 
-#waste_get, #waste_go {
-	display:block;
+#waste_get,
+#waste_go {
+	display: block;
 	/* align-content: center; */
 	margin: auto;
 }
@@ -132,4 +134,5 @@ body {
 .close-button:hover {
 	color: red;
 	font-size: 2rem;
+	cursor: pointer;
 }
