@@ -1,15 +1,9 @@
-var food_amount = 200;
-var animal_amount = 500;
-var green_amount = 300;
 
-var food_waste = document.getElementById("food_w");
-var animal_waste = document.getElementById("animal_w");
-var green_waste = document.getElementById("green_w");
+var buttonCount = 0;
 
-food_waste.innerHTML = 'Food waste amount: '+ food_amount + ' kg'
-animal_waste.innerHTML = 'Animal waste amount: '+ animal_amount + ' kg'
-green_waste.innerHTML = 'Green waste amount: '+ green_amount + ' kg'
-
+function changeWaste() {
+    alert("Hello");
+}
 
 function iterateRecords(results) {
 
@@ -43,6 +37,9 @@ function iterateRecords(results) {
         // Markers
         var marker = L.marker([recordLatitude, recordLongitude]).addTo(myMap);
 
+
+
+
         // Pop up msg
         //var popup = L.popup().setLatLng([51.513, -0.09]).setContent("I am a standalone popup.").openOn(myMap);
         marker.bindPopup("<br><h1>" + gardenName + "</h1>" +
@@ -55,9 +52,17 @@ function iterateRecords(results) {
             "<br><b>Food waste amount: </b><br>" + foodAmount + " / 100" +
             "<br><b>Animal waste amount: </b><br>" + animalAmount + " / 100" +
             "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100" +
-            "<br><b><button> Change waste </button>"
+            "<br><b><button onclick=\"changeWaste()\" id=" + buttonCount + "> Change waste </button>"
+            // "<br><b><button id=" + buttonCount + "> Change waste </button>"
             /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
+        buttonCount = buttonCount + 1;
+
+        // document.getElementById("Change").onclick = function() {
+        //     alert("Hello");
+        // }
+
+
 
         // Circles
         var circle = L.circle([recordLatitude, recordLongitude], {
@@ -87,5 +92,7 @@ $(document).ready(function() {
             iterateRecords(results);
         }
     });
+
+
 
 });
