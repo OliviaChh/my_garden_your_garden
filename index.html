@@ -13,7 +13,7 @@
 
 <body>
     <div id="user_info">
-        <h1 id="user">Olivia's Garden</h1>
+        <h1 id="user">Charon Garden</h1>
         <ul>
             <li id="food_w"></li>
             <li id="animal_w"></li>
@@ -29,29 +29,33 @@
             </div>
 
             <br>
+            <p><b>Type of waste for exchange:</b></p>
+            <br>
             <select id="waste_go">
-                <option value="0">What kind of waste do you want to change?</option>
+                <!--<option value="0">What kind of waste do you want to change?</option>-->
                 <option value="1">Food</option>
                 <option value="2">Animal</option>
                 <option value="3">Green</option>
             </select>
             <br>
-            <label for="amount">The amount of waste:</label><br>
+            <label for="amount" class="lab">The amount of waste:</label>
+            <br>
             <input type="text" id="waste_owner" name="waste" required><br>
             <br>
             <hr>
             <br>
+            <p><b>Type of wanted waste:</b></p><br>
             <select id="waste_get">
-                <option value="0">What kind of waste do you want?</option>
+                <!--<option value="0">What kind of waste do you want?</option>-->
                 <option value="1">Food</option>
                 <option value="2">Animal</option>
                 <option value="3">Green</option>
             </select>
             <br>
-            <label for="amount">The amount of waste:</label><br>
+            <label class="lab" for="amount" >The amount of waste:</label><br>
             <input type="text" id="waste_another_owner" name="waste" required><br>
             <br>
-            <button type="button" onclick="changeWaste()">Change it</button>
+            <button type="button" class="changeBtn" onclick="changeWaste()">Change it</button>
 
         </div>
     </div>

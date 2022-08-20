@@ -54,22 +54,23 @@ body {
 }
 
 #map {
-	width: 80vw;
-	height: 80vh;
+	width: 90vw;
+	height: 90vh;
 	/* Uses viewport (vw & vh) units: https://css-tricks.com/fun-viewport-units */
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
 }
 
 .popup {
-	width: 330px;
-	background: #fff;
+	width: 25rem; 
+	height: 29rem;
+	background: rgba(255, 255, 255, 0.9);
 	border-radius: 5px;
-	border-style: solid;
+	border: solid 3px rgb(19, 163, 6);
 	position: absolute;
 	z-index: 999;
-	top: 50%;
-	left: 80%;
+	top: 65%;
+	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 	padding: 20px;
@@ -89,4 +90,46 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.changeBtn {
+	background-color:rgb(19, 163, 6);
+	border: none;
+	color: white;
+	font-weight: bold;
+	padding: 10px 16px;
+  	text-align: center;
+  	display: inline-block;
+  	font-size: 18px;
+	border-radius: 5px;
+}
+
+.changeBtn:hover {
+	background-color:white;
+	border: solid 1px rgb(19, 163, 6);
+	color: rgb(19, 163, 6);
+}
+
+.lab {
+	font-weight: bold;
+	display:block;
+}
+
+#waste_get, #waste_go {
+	display:block;
+	/* align-content: center; */
+	margin: auto;
+}
+
+.close-button {
+	border: none;
+	font-size: 1.5rem;
+	color: black;
+	background-color: rgba(0, 0, 0, 0);
+	font-weight: bold;
+}
+
+.close-button:hover {
+	color: red;
+	font-size: 2rem;
 }
