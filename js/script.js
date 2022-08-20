@@ -6,9 +6,9 @@ var food_obj = document.getElementById("food_w");
 var animal_obj = document.getElementById("animal_w");
 var green_obj = document.getElementById("green_w");
 
-food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
-animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg'
-green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg'
+food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg';
+animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg';
+green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg';
 
 var popup = document.getElementById("popup");
 
@@ -29,23 +29,19 @@ var buttonCount = 0;
 function changeWaste() {
 
     var provided_type = document.getElementById("waste_go").value;
-    
     var recived_type = document.getElementById("waste_get").value;
 
     var provided_amount = document.getElementById("waste_owner");
     var recived_amount = document.getElementById("waste_another_owner");
 
-    console.log("Provide: " + provided_type + ", " + provided_amount.value);
-    console.log("Receive: " + recived_type + ", " + recived_amount.value);
-    console.log("Food: " + food_waste + ", Animal: " + animal_waste + ", Green: " + green_waste);
-
     var garden_food_obj = document.getElementById("food" + buttonCount);
-    console.log("food" + buttonCount);
+    console.log("food from garden no: " + buttonCount);
     var garden_animal_obj = document.getElementById("animal" + buttonCount);
     var garden_green_obj = document.getElementById("green" + buttonCount);
     var garden_id = document.getElementById(buttonCount);
     console.log(garden_id.value);
 
+    // Update user's garden's data
     if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
         if (provided_type == 1) {
             food_waste = food_waste - Number(provided_amount.value);
@@ -82,34 +78,34 @@ function changeWaste() {
             }
         }
 
-        food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
-        animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg'
-        green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg'
+        // Display the update
+        food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg';
+        animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg';
+        green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg';
         popup.classList.remove("open-popup");
     }
-
-<<<<<<< Updated upstream
 
     garden_value = garden_id.value.split("-");
     food = garden_value[0];
     animal = garden_value[1];
     green = garden_value[2];
     console.log(garden_value);
+    
     console.log(food);
     console.log(animal);
     console.log(green);
     console.log(recived_type);
     console.log(provided_type);
     console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
-=======
+
     console.log(garden_id.value.substr(0, 2));
     console.log(garden_id.value.substr(2, 2));
     console.log(garden_id.value.substr(4, 2));
-    food = garden_id.value.split(" ")[0];
+    /*food = garden_id.value.split(" ")[0];
     animal = garden_id.value.split(" ")[1];
-    green = garden_id.value.split(" ")[2];
+    green = garden_id.value.split(" ")[2];*/
 
->>>>>>> Stashed changes
+    // Update another garden's data
     if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
         if (provided_type == 1) {
             food = Number(food) + Number(provided_amount.value);
@@ -136,11 +132,11 @@ function changeWaste() {
 
         console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
 
+        // Display the update
         garden_food_obj.innerHTML = 'Food waste amount: ' + food + ' kg';
         garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg';
         garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg';
         popup.classList.remove("open-popup");
-        console.log("Food: " + food_waste + ", Animal: " + animal_waste + ", Green: " + green_waste);
     }
 
 
@@ -186,24 +182,24 @@ function iterateRecords(results) {
         // Pop up msg
         //var popup = L.popup().setLatLng([51.513, -0.09]).setContent("I am a standalone popup.").openOn(myMap);
         marker.bindPopup("<br><h1>" + gardenName + "</h1>" +
-            // "<br><b>Address: </b><br>" + recordAddress +
-            // "<br><b>Facilities: </b><br>" + recordFacilities +
-            // "<br><b>Opening times: </b>" + recordOpeningTimes +
-            // "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
-            // "<br><b>Contact: </b><br>" + recordPhone +
-            // "<br><b>Other information: </b><br>" + recordOtherInfo +
+            /* "<br><b>Address: </b><br>" + recordAddress +
+             "<br><b>Facilities: </b><br>" + recordFacilities +
+             "<br><b>Opening times: </b>" + recordOpeningTimes +
+             "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
+             "<br><b>Contact: </b><br>" + recordPhone +
+             "<br><b>Other information: </b><br>" + recordOtherInfo +*/
             "<br><b><div id=\"food" + buttonCount + "\" value=" + foodAmount + ">Food waste amount: </b><br>" + foodAmount + " / 100</div>" +
             "<br><b><div id=\"animal" + buttonCount + "\" value=" + animalAmount + ">Animal waste amount:</b><br>" + animalAmount + " / 100</div>" +
             "<br><b><div id=\"green" + buttonCount + "\" value=" + greenAmount + ">Green waste amount: </b><br>" + greenAmount + " / 100</div>" +
             "<br><br><b><button onclick=\"openPopup(" + buttonCount + " )\" id=" + buttonCount + " \" value=" + foodAmount + "-" + animalAmount + "-" + greenAmount + "> Change waste </button>"
-            // "<br><b><button id=" + buttonCount + "> Change waste </button>"
-            /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
+            /* "<br><b><button id=" + buttonCount + "> Change waste </button>"
+            + "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
         buttonCount = buttonCount + 1;
 
-        // document.getElementById("Change").onclick = function() {
-        //     alert("Hello");
-        // }
+        /* document.getElementById("Change").onclick = function() {
+             alert("Hello");
+         }*/
 
 
 
