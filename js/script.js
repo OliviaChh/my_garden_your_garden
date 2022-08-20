@@ -19,8 +19,9 @@ function openPopup() {
 var buttonCount = 0;
 
 function changeWaste() {
-    food_waste = food_waste + 10;
-    food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
+    var waste_amount = document.getElementById("waste");
+    food_waste = food_waste + Number(waste_amount.value);
+    food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg';
     popup.classList.remove("open-popup");
 }
 
@@ -41,7 +42,7 @@ function iterateRecords(results) {
 
 
     // Iterate over each record and add a marker using the Latitude field (also containing longitude)
-    $.each(results.result.records, function (recordID, recordValue) {
+    $.each(results.result.records, function(recordID, recordValue) {
 
         var recordLatitude = recordValue["Latitude"];
         var gardenName = recordValue["Garden_Name"];
@@ -97,11 +98,11 @@ function iterateRecords(results) {
 
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     var data = {
         resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
-        //limit: 100
+            //limit: 100
     }
 
     $.ajax({
@@ -109,7 +110,7 @@ $(document).ready(function () {
         data: data,
         dataType: "jsonp",
         cache: true,
-        success: function (results) {
+        success: function(results) {
             iterateRecords(results);
         }
     });
