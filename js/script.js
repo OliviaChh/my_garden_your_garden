@@ -10,14 +10,21 @@ food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
 animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg'
 green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg'
 
+var popup = document.getElementById("popup");
+
+function openPopup() {
+    popup.classList.add("open-popup");
+}
 
 var buttonCount = 0;
 
 function changeWaste() {
     food_waste = food_waste + 10;
     food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
-
+    popup.classList.remove("open-popup");
 }
+
+
 
 function iterateRecords(results) {
 
@@ -66,7 +73,7 @@ function iterateRecords(results) {
             "<br><b>Food waste amount: </b><br>" + foodAmount + " / 100" +
             "<br><b>Animal waste amount: </b><br>" + animalAmount + " / 100" +
             "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100" +
-            "<br><b><button onclick=\"changeWaste()\" id=" + buttonCount + "> Change waste </button>"
+            "<br><b><button onclick=\"openPopup()\" id=" + buttonCount + "> Change waste </button>"
             // "<br><b><button id=" + buttonCount + "> Change waste </button>"
             /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();

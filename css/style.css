@@ -14,21 +14,23 @@ body {
 }
 
 
-#user_info{
-	font-size:25px;
+#user_info {
+	font-size: 25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
 	/* border: 4px pink solid; */
 }
-#user{
+
+#user {
 	display: block;
 	margin: 25px;
 	margin-right: 40px;
 	/* border: 4px red solid; */
 }
-#user_info ul{
+
+#user_info ul {
 	display: block;
 	list-style: none;
 	margin: 20px;
@@ -56,7 +58,8 @@ body {
 }
 
 .popup {
-	width: 400px;
+	width: 300px;
+
 	background: #fff;
 	border-radius: 5px;
 	border-style: solid;
@@ -68,4 +71,10 @@ body {
 	text-align: center;
 	padding: auto;
 	color: #333;
+	padding: auto;
+	visibility: hidden;
+}
+
+.open-popup {
+	visibility: visible;
 }
