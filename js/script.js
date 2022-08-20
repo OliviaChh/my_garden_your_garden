@@ -24,7 +24,9 @@ function iterateRecords(results) {
         var recordWebsite = recordValue["Website"];
         var recordOpeningTimes = recordValue["Opening_times"];
         var recordOtherInfo = recordValue["Other_information"];
-        var foodAmount = Math.random() * 100;
+        var foodAmount = Math.floor(Math.random() * 100) + 1;
+        var animalAmount = Math.floor(Math.random() * 100) + 1;
+        var greenAmount = Math.floor(Math.random() * 100) + 1;
         // Markers
         var marker = L.marker([recordLatitude, recordLongitude]).addTo(myMap);
 
@@ -37,7 +39,10 @@ function iterateRecords(results) {
             "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
             "<br><b>Contact: </b><br>" + recordPhone +
             "<br><b>Other information: </b><br>" + recordOtherInfo +
-            "<br><b>Food Amount: </b><br>" + foodAmount
+            "<br><b>Food waste amount: </b><br>" + foodAmount + " / 100" +
+            "<br><b>Animal waste amount: </b><br>" + animalAmount + " / 100" +
+            "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100" +
+            "<br><b><button> Change waste </button>"
             /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
 
