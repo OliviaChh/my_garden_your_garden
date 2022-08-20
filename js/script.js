@@ -13,7 +13,7 @@ function iterateRecords(results) {
 
 
     // Iterate over each record and add a marker using the Latitude field (also containing longitude)
-    $.each(results.result.records, function (recordID, recordValue) {
+    $.each(results.result.records, function(recordID, recordValue) {
 
         var recordLatitude = recordValue["Latitude"];
         var gardenName = recordValue["Garden_Name"];
@@ -41,7 +41,8 @@ function iterateRecords(results) {
             "<br><b>Other information: </b><br>" + recordOtherInfo +
             "<br><b>Food waste amount: </b><br>" + foodAmount + " / 100" +
             "<br><b>Animal waste amount: </b><br>" + animalAmount + " / 100" +
-            "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100"
+            "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100" +
+            "<br><b><button> Change waste </button>"
             /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
 
@@ -57,11 +58,11 @@ function iterateRecords(results) {
 
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     var data = {
         resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
-        //limit: 100
+            //limit: 100
     }
 
     $.ajax({
@@ -69,7 +70,7 @@ $(document).ready(function () {
         data: data,
         dataType: "jsonp",
         cache: true,
-        success: function (results) {
+        success: function(results) {
             iterateRecords(results);
         }
     });
