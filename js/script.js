@@ -92,8 +92,9 @@ function changeWaste() {
     console.log(food);
     console.log(animal);
     console.log(green);
-    console.log(recived_type)
-    console.log(provided_type)
+    console.log(recived_type);
+    console.log(provided_type);
+    console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
     if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
         if (provided_type == 1) {
             food = Number(food) + Number(provided_amount.value);
@@ -118,9 +119,11 @@ function changeWaste() {
             }
         }
 
-        garden_food_obj.innerHTML = 'Food waste amount: ' + food + ' kg'
-        garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg'
-        garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg'
+        console.log("Food: " + food + " Animal: " + animal + " Green: " + green);
+
+        garden_food_obj.innerHTML = 'Food waste amount: ' + food + ' kg';
+        garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal + ' kg';
+        garden_green_obj.innerHTML = 'Green waste amount: ' + green + ' kg';
         popup.classList.remove("open-popup");
     }
 
