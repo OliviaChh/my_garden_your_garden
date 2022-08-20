@@ -16,6 +16,11 @@ function openPopup() {
     popup.classList.add("open-popup");
 }
 
+function closePopup() {
+    popup.classList.remove("open-popup");
+}
+
+
 var buttonCount = 0;
 
 function changeWaste() {
@@ -109,16 +114,16 @@ function iterateRecords(results) {
         // Pop up msg
         //var popup = L.popup().setLatLng([51.513, -0.09]).setContent("I am a standalone popup.").openOn(myMap);
         marker.bindPopup("<br><h1>" + gardenName + "</h1>" +
-            "<br><b>Address: </b><br>" + recordAddress +
-            "<br><b>Facilities: </b><br>" + recordFacilities +
-            "<br><b>Opening times: </b>" + recordOpeningTimes +
-            "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
-            "<br><b>Contact: </b><br>" + recordPhone +
-            "<br><b>Other information: </b><br>" + recordOtherInfo +
+            // "<br><b>Address: </b><br>" + recordAddress +
+            // "<br><b>Facilities: </b><br>" + recordFacilities +
+            // "<br><b>Opening times: </b>" + recordOpeningTimes +
+            // "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
+            // "<br><b>Contact: </b><br>" + recordPhone +
+            // "<br><b>Other information: </b><br>" + recordOtherInfo +
             "<br><b>Food waste amount: </b><br>" + foodAmount + " / 100" +
             "<br><b>Animal waste amount: </b><br>" + animalAmount + " / 100" +
             "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100" +
-            "<br><b><button onclick=\"openPopup()\" id=" + buttonCount + "> Change waste </button>"
+            "<br><br><b><button onclick=\"openPopup()\" id=" + buttonCount + "> Change waste </button>"
             // "<br><b><button id=" + buttonCount + "> Change waste </button>"
             /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
