@@ -12,8 +12,11 @@ green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg'
 
 var popup = document.getElementById("popup");
 
-function openPopup() {
+function openPopup(data) {
     popup.classList.add("open-popup");
+    buttonCount = data;
+    console.log(data);
+    console.log(buttonCount);
 }
 
 function closePopup() {
@@ -31,6 +34,12 @@ function changeWaste() {
     var provided_amount = document.getElementById("waste_owner");
     var recived_amount = document.getElementById("waste_another_owner");
 
+    var garden_food_obj = document.getElementById("food" + buttonCount);
+    console.log("food" + buttonCount);
+    var garden_animal_obj = document.getElementById("animal" + buttonCount);
+    var garden_green_obj = document.getElementById("green" + buttonCount);
+    var garden_id = document.getElementById(buttonCount);
+    console.log(garden_id.value);
 
     if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
         if (provided_type == 1) {
@@ -41,13 +50,10 @@ function changeWaste() {
             }
             else if (recived_type == 2) {
                 animal_waste = animal_waste + Number(recived_amount.value);
-            }
-            else if (recived_type == 3) {
+            } else if (recived_type == 3) {
                 green_waste = green_waste + Number(recived_amount.value);
             }
-        }
-
-        else if (provided_type == 2) {
+        } else if (provided_type == 2) {
             animal_waste = animal_waste - Number(provided_amount.value);
             if (animal_waste < 0) {
                 alert("Please choose other kinds of waste to exchange or provide less amount of it.");
@@ -55,13 +61,10 @@ function changeWaste() {
             }
             else if (recived_type == 1) {
                 food_waste = food_waste + Number(recived_amount.value);
-            }
-            else if (recived_type == 3) {
+            } else if (recived_type == 3) {
                 green_waste = green_waste + Number(recived_amount.value);
             }
-        }
-
-        else if (provided_type == 3) {
+        } else if (provided_type == 3) {
             green_waste = green_waste - Number(provided_amount.value);
             if (green_waste < 0) {
                 alert("Please choose other kinds of waste to exchange or provide less amount of it.");
@@ -69,8 +72,7 @@ function changeWaste() {
             }
             else if (recived_type == 1) {
                 food_waste = food_waste + Number(recived_amount.value);
-            }
-            else if (recived_type == 2) {
+            } else if (recived_type == 2) {
                 animal_waste = animal_waste + Number(recived_amount.value);
             }
         }
@@ -81,8 +83,42 @@ function changeWaste() {
         popup.classList.remove("open-popup");
     }
 
+    console.log(garden_id.value.substr(0, 2));
+    console.log(garden_id.value.substr(2, 2));
+    console.log(garden_id.value.substr(4, 2));
+    food = garden_id.value.split(" ")[0];
+    animal = garden_id.value.split(" ")[1];
+    green = garden_id.value.split(" ")[2];
+    if (provided_type != recived_type && provided_type != 0 && recived_type != 0) {
+        if (provided_type == 1) {
+            food_waste = Number(food) + Number(provided_amount.value);
+            if (recived_type == 2) {
+                animal_waste = Number(animal) - Number(recived_amount.value);
+            } else if (recived_type == 3) {
+                green_waste = Number(green) - Number(recived_amount.value);
+            }
+        } else if (provided_type == 2) {
+            animal_waste = Number(animal) + Number(provided_amount.value);
+            if (recived_type == 1) {
+                food_waste = Number(food) - Number(recived_amount.value);
+            } else if (recived_type == 3) {
+                green_waste = Number(green) - Number(recived_amount.value);
+            }
+        } else if (provided_type == 3) {
+            green_waste = Number(green) + Number(provided_amount.value);
+            if (recived_type == 1) {
+                food_waste = Number(food) - Number(recived_amount.value);
+            } else if (recived_type == 2) {
+                animal_waste = Number(animal) - Number(recived_amount.value);
+            }
+        }
 
-    // food_waste = food_waste - Number(provided_amount.value) + Number(recived_amount.value);
+        garden_food_obj.innerHTML = 'Food waste amount: ' + food_waste + ' kg'
+        garden_animal_obj.innerHTML = 'Animal waste amount: ' + animal_waste + ' kg'
+        garden_green_obj.innerHTML = 'Green waste amount: ' + green_waste + ' kg'
+        popup.classList.remove("open-popup");
+    }
+
 
 }
 
@@ -103,7 +139,7 @@ function iterateRecords(results) {
 
 
     // Iterate over each record and add a marker using the Latitude field (also containing longitude)
-    $.each(results.result.records, function (recordID, recordValue) {
+    $.each(results.result.records, function(recordID, recordValue) {
 
         var recordLatitude = recordValue["Latitude"];
         var gardenName = recordValue["Garden_Name"];
@@ -132,10 +168,10 @@ function iterateRecords(results) {
             // "<br><b>Website: </b><br><a href='" + recordWebsite + "'>" + recordWebsite + "</a>" +
             // "<br><b>Contact: </b><br>" + recordPhone +
             // "<br><b>Other information: </b><br>" + recordOtherInfo +
-            "<br><b>Food waste amount: </b><br>" + foodAmount + " / 100" +
-            "<br><b>Animal waste amount: </b><br>" + animalAmount + " / 100" +
-            "<br><b>Green waste amount: </b><br>" + greenAmount + " / 100" +
-            "<br><br><b><button onclick=\"openPopup()\" id=" + buttonCount + "> Change waste </button>"
+            "<br><b><div id=\"food" + buttonCount + "\" value=" + foodAmount + ">Food waste amount: </b><br>" + foodAmount + " / 100</div>" +
+            "<br><b><div id=\"animal" + buttonCount + "\" value=" + animalAmount + ">Animal waste amount:</b><br>" + animalAmount + " / 100</div>" +
+            "<br><b><div id=\"green" + buttonCount + "\" value=" + greenAmount + ">Green waste amount: </b><br>" + greenAmount + " / 100</div>" +
+            "<br><br><b><button onclick=\"openPopup(" + buttonCount + " )\" id=" + buttonCount + " \" value=" + foodAmount + " " + animalAmount + " " + greenAmount + "> Change waste </button>"
             // "<br><b><button id=" + buttonCount + "> Change waste </button>"
             /*+ "<br><b>Location: </b> [ " + recordLatitude + ", " + recordLongitude + " ]"*/
         ).openPopup();
@@ -159,11 +195,11 @@ function iterateRecords(results) {
 
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
 
     var data = {
         resource_id: "b71a3b80-1cd9-4242-924e-5d9e2a4a985f"
-        //limit: 100
+            //limit: 100
     }
 
     $.ajax({
@@ -171,7 +207,7 @@ $(document).ready(function () {
         data: data,
         dataType: "jsonp",
         cache: true,
-        success: function (results) {
+        success: function(results) {
             iterateRecords(results);
         }
     });

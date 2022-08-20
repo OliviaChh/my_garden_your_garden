@@ -2,67 +2,67 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>DECO1800/7180 Week 3 Workshop Example 2</title>
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/leaflet.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>DECO1800/7180 Week 3 Workshop Example 2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div id="user_info">
-		<h1 id="user">Olivia Garden</h1>
-		<ul>
-			<li id="food_w"></li>
-			<li id="animal_w"></li>
-			<li id="green_w"></li>
-		</ul>
-	</div>
+    <div id="user_info">
+        <h1 id="user">Olivia Garden</h1>
+        <ul>
+            <li id="food_w"></li>
+            <li id="animal_w"></li>
+            <li id="green_w"></li>
+        </ul>
+    </div>
 
-	<div class="container">
-		<div class="popup" id="popup">
-			<div class="popup-header">
-				<h2>Exchange waste</h2>
-				<button class="close-button" onclick="closePopup()">&times;</button>
-			</div>
+    <div class="container">
+        <div class="popup" id="popup">
+            <div class="popup-header">
+                <h2>Exchange waste</h2>
+                <button class="close-button" onclick="closePopup()">&times;</button>
+            </div>
 
-			<br>
-			<select id="waste_go">
-				<option value="0">What kind of waste do you want to change?</option>
-				<option value="1">Food</option>
-				<option value="2">Animal</option>
-				<option value="3">Green</option>
-			</select>
-			<br>
-			<label for="amount">The amount of waste:</label><br>
-			<input type="text" id="waste_owner" name="waste" required><br>
-			<br>
-			<hr>
-			<br>
-			<select id="waste_get">
-				<option value="0">What kind of waste do you want?</option>
-				<option value="1">Food</option>
-				<option value="2">Animal</option>
-				<option value="3">Green</option>
-			</select>
-			<br>
-			<label for="amount">The amount of waste:</label><br>
-			<input type="text" id="waste_another_owner" name="waste" required><br>
-			<br>
-			<button type="button" onclick="changeWaste()">Change it</button>
+            <br>
+            <select id="waste_go">
+                <option value="0">What kind of waste do you want to change?</option>
+                <option value="1">Food</option>
+                <option value="2">Animal</option>
+                <option value="3">Green</option>
+            </select>
+            <br>
+            <label for="amount">The amount of waste:</label><br>
+            <input type="text" id="waste_owner" name="waste" required><br>
+            <br>
+            <hr>
+            <br>
+            <select id="waste_get">
+                <option value="0">What kind of waste do you want?</option>
+                <option value="1">Food</option>
+                <option value="2">Animal</option>
+                <option value="3">Green</option>
+            </select>
+            <br>
+            <label for="amount">The amount of waste:</label><br>
+            <input type="text" id="waste_another_owner" name="waste" required><br>
+            <br>
+            <button type="button" onclick="changeWaste()">Change it</button>
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 
-	<div id="map_container">
-		<article id="map"></article>
-	</div>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="js/script.js"></script>
-	<script src="js/leaflet.js"></script>
+    <div id="map_container">
+        <article id="map"></article>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/leaflet.js"></script>
 
 </body>
 
