@@ -11,21 +11,23 @@ body {
 	padding: 0;
 }
 
-#user_info{
+#user_info {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size:25px;
+	font-size: 25px;
 }
-#user_info ul{
+
+#user_info ul {
 	list-style: none;
 }
-#user_info li{
+
+#user_info li {
 	display: inline;
 	padding-left: 30px;
 }
 
-#map_container{
+#map_container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -37,5 +39,20 @@ body {
 	height: 80vh;
 	/* Uses viewport (vw & vh) units: https://css-tricks.com/fun-viewport-units */
 	background-color: white;
-	box-shadow: rgba(0,0,0,0.5) 0 5px 10px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
+}
+
+.popup {
+	width: 400px;
+	background: #fff;
+	border-radius: 5px;
+	border-style: solid;
+	position: absolute;
+	z-index: 999;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	padding: auto;
+	color: #333;
 }
