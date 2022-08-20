@@ -1,84 +1,81 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	/* background-color: lightgray; */
-	background-image: url(/images/bg.jpeg);
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 16px;
-	min-height: 100vh;
-	margin: 0;
-	padding: 0;
+    /* background-color: lightgray; */
+    background-image: url(../images/bg.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-
 #user_info {
-	font-size: 25px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	/* border: 4px pink solid; */
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 4px pink solid; */
 }
 
 #user {
-	display: block;
-	margin: 25px;
-	margin-right: 40px;
-	/* border: 4px red solid; */
+    display: block;
+    margin: 25px;
+    margin-right: 40px;
+    /* border: 4px red solid; */
 }
 
 #user_info ul {
-	display: block;
-	list-style: none;
-	margin: 20px;
-	/* border: 4px green solid; */
+    display: block;
+    list-style: none;
+    margin: 20px;
+    /* border: 4px green solid; */
 }
 
 #user_info li {
-	display: inline;
-	padding: 30px;
+    display: inline;
+    padding: 30px;
 }
 
 #map_container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
-
 #map {
-	width: 80vw;
-	height: 80vh;
-	/* Uses viewport (vw & vh) units: https://css-tricks.com/fun-viewport-units */
-	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
+    width: 80vw;
+    height: 80vh;
+    /* Uses viewport (vw & vh) units: https://css-tricks.com/fun-viewport-units */
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
 }
 
 .popup {
-	width: 300px;
-
-	background: #fff;
-	border-radius: 5px;
-	border-style: solid;
-	position: absolute;
-	z-index: 999;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-	padding: auto;
-	color: #333;
-	padding: auto;
-	visibility: hidden;
+    width: 300px;
+    background: #fff;
+    border-radius: 5px;
+    border-style: solid;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: auto;
+    color: #333;
+    padding: auto;
+    visibility: hidden;
 }
 
 .open-popup {
-	visibility: visible;
+    visibility: visible;
 }
