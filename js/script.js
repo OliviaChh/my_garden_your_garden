@@ -1,14 +1,14 @@
-var food_amount = 200;
-var animal_amount = 500;
-var green_amount = 300;
+var food_waste = 200;
+var animal_waste = 500;
+var green_waste = 300;
 
-var food_waste = document.getElementById("food_w");
-var animal_waste = document.getElementById("animal_w");
-var green_waste = document.getElementById("green_w");
+var food_obj = document.getElementById("food_w");
+var animal_obj = document.getElementById("animal_w");
+var green_obj = document.getElementById("green_w");
 
-food_waste.innerHTML = 'Food waste amount: '+ food_amount + ' kg'
-animal_waste.innerHTML = 'Animal waste amount: '+ animal_amount + ' kg'
-green_waste.innerHTML = 'Green waste amount: '+ green_amount + ' kg'
+food_obj.innerHTML = 'Food waste amount: '+ food_waste + ' kg'
+animal_obj.innerHTML = 'Animal waste amount: '+ animal_waste + ' kg'
+green_obj.innerHTML = 'Green waste amount: '+ green_waste + ' kg'
 
 
 var buttonCount = 0;
