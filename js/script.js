@@ -1,3 +1,16 @@
+var food_amount = 200;
+var animal_amount = 500;
+var green_amount = 300;
+
+var food_waste = document.getElementById("food_w");
+var animal_waste = document.getElementById("animal_w");
+var green_waste = document.getElementById("green_w");
+
+food_waste.innerHTML = 'Food waste amount: '+ food_amount + ' kg'
+animal_waste.innerHTML = 'Animal waste amount: '+ animal_amount + ' kg'
+green_waste.innerHTML = 'Green waste amount: '+ green_amount + ' kg'
+
+
 function iterateRecords(results) {
 
     console.log(results);
