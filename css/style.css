@@ -94,6 +94,7 @@ body {
 
 .changeBtn {
 	background-color: rgb(19, 163, 6);
+	 /* border: solid 1px transparent; */
 	border: none;
 	color: white;
 	font-weight: bold;
@@ -106,7 +107,8 @@ body {
 
 .changeBtn:hover {
 	background-color: white;
-	border: solid 1px rgb(19, 163, 6);
+	/* border: solid 1px rgb(19, 163, 6); */
+	box-shadow: inset 0px 0px 0px 2px rgb(19, 163, 6);
 	color: rgb(19, 163, 6);
 	cursor: pointer;
 }
