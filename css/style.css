@@ -5,8 +5,7 @@
 }
 
 body {
-	/* background-color: lightgray; */
-	background-image: url(../images/bg.jpeg);
+	background-image: url(https://images.unsplash.com/photo-1532915905335-03659fc83ff9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -54,8 +53,8 @@ body {
 }
 
 #map {
-	width: 90vw;
-	height: 90vh;
+	width: 85vw;
+	height: 85vh;
 	/* Uses viewport (vw & vh) units: https://css-tricks.com/fun-viewport-units */
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
